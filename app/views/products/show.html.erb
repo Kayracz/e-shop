@@ -1,39 +1,67 @@
-<p id="notice"><%= notice %></p>
+<% content_for :body_class, 'bg-light' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<section class="section product-show">
+  <div class="columns">
+    <div class="column is-8">
+      <h1 class="title is-2"><%= @product.name %></h1>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+      <ul class="pv1">
+        <% if @product.color? %>
+        <li class="inline-block pr3"><%= @product.color %></li>
+        <% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+        <li class="inline-block pr3"><%= @product.gender %></li>
 
-<p>
-  <strong>Color:</strong>
-  <%= @product.color %>
-</p>
+        <% if @product.size? %>
+        <li class="inline-block pr3"><%= @product.size %></li>
+        <% end %>
+      </ul>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @product.quantity %>
-</p>
 
-<p>
-  <strong>Size:</strong>
-  <%= @product.size %>
-</p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @product.gender %>
-</p>
+      <div class="content pa4 mt3 bg-white border-radius-3">
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+      <h3 class="subtitle is-4"><%= @product.name %></h3>
+      <%= @product.description %>
+
+
+      <h3 class="subtitle is-4 pt5">Descripcion</h3>
+
+      <table class="table is-narrow">
+        <% if @product.size %>
+        <tr>
+          <td class="has-text-weight-bold">Gender</td>
+          <td><%= @product.gender %></td>
+        </tr>
+        <% end %>
+
+        <% if @product.color %>
+          <tr>
+            <td class="has-text-weight-bold">Color:</td>
+            <td><%= @product.color %></td>
+          </tr>
+        <% end %>
+
+        <% if @product.size %>
+          <tr>
+            <td class="has-text-weight-bold">Size:</td>
+            <td><%= @product.size %></td>
+          </tr>
+        <% end %>
+
+        <tr>
+          <td class="has-text-weight-bold">Price:</td>
+          <td>Bs.<%=@product.price %></td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    <div class="column is-3 is-offset-1">
+      <div class="bg-white pa4 border-radius-3">
+        <h4 class="title is-5 has-text-centered"><%= number_to_currency(@product.price) %></h4>
+        <p class="has-text-centered mb4">Sold by <%= @product.user.name %></p>
+      </div>
+    </div>
+  </div>
+
+</section>
