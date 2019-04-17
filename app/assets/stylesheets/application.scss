@@ -24,6 +24,43 @@ $link-hover: #222;
   border-radius: 0;
 }
 
+
+// .hero-body{
+//   background-color: #AC2217;
+//   color:white;
+// }
+
+// .hero.is-light .title {
+//     color: white;
+// }
+
+// .navbar{
+//    background-color: #AC2217 !important;
+//   color:white !important;
+// }
+
+// .title{
+//   color:white !important;
+// }
+
+
+// .navbar.is-light .navbar-end .navbar-link {
+//     color: white !important;
+// }
+
+
+.hero.is-light .title {
+    color: #AC2217;
+}
+.navbar-brand{
+  img{
+    height: auto;
+    max-width: 46%;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+}
+
 .notification:not(:last-child) {
   margin-bottom: 0;
 }

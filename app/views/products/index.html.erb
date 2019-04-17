@@ -10,16 +10,20 @@
 </section>
 <% end %>
 
-<div class="product-index-grid pt4">
+<div class="instrument-index-grid pt4">
   <% @products.each do |product| %>
 
-    <div class="product border-light">
-      <div class="product-thumb">
-      <%= link_to image_tag(product.image_url(:thumb)), product %>
+    <div class="instrument border-light" style="width:100%; height:100%;">
+      <div class="instrument-thumb" style="
+    height: auto;
+    max-width: 244px;
+">
+
+       <a href="#"><%= cl_image_tag product.photo%></a>
 
       <% if product.price? %>
         <div class="condition">
-          <span class="tag is-dark">Bs.<%= product.price %></span>
+          <span class="tag is-dark">Bs. <%= product.price %></span>
         </div>
       <% end %>
       </div>
@@ -31,9 +35,12 @@
 
       <p class="has-text-gray fg pt1"><%= product.description %></p>
 
-     <!--  <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(product.price) %></p> -->
+      <p class="has-text-gray fg pt1"><%= product.size %></p>
+      <p class="has-text-gray fg pt1"><%= product.color %></p>
+      <p class="has-text-gray fg pt1"><%= product.category %></p>
+     <!--  <p class="f3 fw6 has-text-right pt2 price">Bs.<%=(product.price) %></p> -->
 
-      <%# if product_author(product_path) %>
+      <%# if product_author(product) %>
          <%#= link_to 'Edit', edit_product_path(product), class: "button is-small" %>
          <%#= link_to 'Delete', product, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
       <%# end %>
